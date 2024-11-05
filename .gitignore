@@ -17,6 +17,8 @@ node_modules/
 # Vercel and other deployment-related files
 .vercel/
 
+
+
 # System files
 .DS_Store
 Thumbs.db

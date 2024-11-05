@@ -1,9 +1,9 @@
-import GeographyQuestions from "./geographySchema";
-import HistoryQuestions from "./historySchema";
-import KathaQuestions from "./kathaSchema";
-import LiteratureQuestions from "./literatureSchema";
-import PoliticsQuestions from "./politics";
-import SportsQuestions from "./sportsSchema";
+import GeographyQuestions from "./geographySchema.js";
+import HistoryQuestions from "./historySchema.js";
+import KathaQuestions from "./kathaSchema.js";
+import LiteratureQuestions from "./literatureSchema.js";
+import PoliticsQuestions from "./politics.js";
+import SportsQuestions from "./sportsSchema.js";
 
 export {
   GeographyQuestions,

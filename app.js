@@ -12,7 +12,7 @@ import {
   KathaQuestions,
   LiteratureQuestions,
   PoliticsQuestions,
-} from "./schemas/index";
+} from "./schemas/index.js";
 const app = express();
 app.use(cors());
 
@@ -24,7 +24,7 @@ mongoose
   })
   .catch((e) => console.log(e));
 
-app.get("/", (req, res) => {
+app.use("/", (req, res) => {
   res.json({ message: "Hello world" });
 });
 
