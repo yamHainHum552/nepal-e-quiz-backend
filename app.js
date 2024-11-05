@@ -23,6 +23,10 @@ mongoose
   })
   .catch((e) => console.log(e));
 
+app.get("/", (req, res) => {
+  res.json({ message: "Hello world" });
+});
+
 //   Get the data
 app.get("/api/geography/getData", GeographyData);
 app.get("/api/history/getData", HistoryData);
