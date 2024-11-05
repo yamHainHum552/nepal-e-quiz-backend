@@ -5,13 +5,14 @@ import cors from "cors";
 import express from "express";
 import mongoose from "mongoose";
 
-import { GeographyData } from "./api/geography.js";
-import { HistoryData } from "./api/history.js";
-import { SportsData } from "./api/sports.js";
-import { KathaData } from "./api/katha.js";
-import { LiteratureData } from "./api/literature.js";
-import { PoliticsData } from "./api/politics.js";
-
+import {
+  HistoryQuestions,
+  SportsQuestions,
+  GeographyQuestions,
+  KathaQuestions,
+  LiteratureQuestions,
+  PoliticsQuestions,
+} from "./schemas/index";
 const app = express();
 app.use(cors());
 
@@ -28,12 +29,54 @@ app.get("/", (req, res) => {
 });
 
 //   Get the data
-app.get("/api/geography/getData", GeographyData);
-app.get("/api/history/getData", HistoryData);
-app.get("/api/sports/getData", SportsData);
-app.get("/api/katha/getData", KathaData);
-app.get("/api/literature/getData", LiteratureData);
-app.get("/api/politics/getData", PoliticsData);
+app.get("/api/geography/getData", async (req, res) => {
+  try {
+    const data = await GeographyQuestions.find(); // Fetch all questions
+    res.status(200).json(data); // Send the fetched data as JSON response
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching data", error });
+  }
+});
+app.get("/api/history/getData", async (req, res) => {
+  try {
+    const data = await HistoryQuestions.find(); // Fetch all questions
+    res.status(200).json(data); // Send the fetched data as JSON response
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching data", error });
+  }
+});
+app.get("/api/sports/getData", async (req, res) => {
+  try {
+    const data = await SportsQuestions.find(); // Fetch all questions
+    res.status(200).json(data); // Send the fetched data as JSON response
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching data", error });
+  }
+});
+app.get("/api/katha/getData", async (req, res) => {
+  try {
+    const data = await KathaQuestions.find(); // Fetch all questions
+    res.status(200).json(data); // Send the fetched data as JSON response
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching data", error });
+  }
+});
+app.get("/api/literature/getData", async (req, res) => {
+  try {
+    const data = await LiteratureQuestions.find(); // Fetch all questions
+    res.status(200).json(data); // Send the fetched data as JSON response
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching data", error });
+  }
+});
+app.get("/api/politics/getData", async (req, res) => {
+  try {
+    const data = await PoliticsQuestions.find(); // Fetch all questions
+    res.status(200).json(data); // Send the fetched data as JSON response
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching data", error });
+  }
+});
 
 //Create Data
 // app.post("/createData", async (req, res) => {
