@@ -1,9 +1,7 @@
-import dotenv from "dotenv";
-dotenv.config();
 import cors from "cors";
+import { dbConnect } from "./dbConnect.js";
 
 import express from "express";
-import mongoose from "mongoose";
 
 import {
   HistoryQuestions,
@@ -13,19 +11,18 @@ import {
   LiteratureQuestions,
   PoliticsQuestions,
 } from "./schemas/index.js";
+
 const app = express();
 app.use(cors());
+app.use(express.json());
 
-const mongoDBURI = process.env.MONGODB_PUBLIC_URI;
-mongoose
-  .connect(mongoDBURI)
-  .then(() => {
-    console.log("Database connected");
-  })
-  .catch((e) => console.log(e));
+app.use(async (req, res, next) => {
+  await dbConnect();
+  next();
+});
 
-app.use("/", (req, res) => {
-  res.json({ message: "Hello world" });
+app.get("/", (req, res) => {
+  res.json({ message: "Hello world from Vercel!" });
 });
 
 //   Get the data
@@ -77,6 +74,10 @@ app.get("/api/politics/getData", async (req, res) => {
     res.status(500).json({ message: "Error fetching data", error });
   }
 });
+
+// app.listen(3000, () => {
+//   console.log("Server running on");
+// });
 
 //Create Data
 // app.post("/createData", async (req, res) => {
