@@ -32,7 +32,7 @@ app.get("/", (req, res) => {
 app.get("/api/geography/getData", GeographyData);
 app.get("/api/history/getData", HistoryData);
 app.get("/api/sports/getData", SportsData);
-app.get("/api/katha/getData", KathaData);
+app.get("/api/gaun/getData", KathaData);
 app.get("/api/literature/getData", LiteratureData);
 app.get("/api/politics/getData", PoliticsData);
 app.get("/api/religion/getData", ReligionData);
