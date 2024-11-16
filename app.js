@@ -14,6 +14,7 @@ import {
   ScienceData,
   SportsData,
 } from "./apis/index.js";
+import { getUpdate } from "./apis/updates/index.js";
 
 const app = express();
 app.use(cors());
@@ -38,6 +39,7 @@ app.get("/api/politics/getData", PoliticsData);
 app.get("/api/religion/getData", ReligionData);
 app.get("/api/science/getData", ScienceData);
 app.get("/api/driving/getData", DrivingData);
+app.get("/api/update/getData", getUpdate);
 
 // app.listen(3000, () => {
 //   console.log("Server running on");
