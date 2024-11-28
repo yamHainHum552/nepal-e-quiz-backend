@@ -10,10 +10,7 @@ export const dbConnect = async () => {
   if (isConnected) return;
 
   try {
-    await mongoose.connect(mongoDBURI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(mongoDBURI);
     isConnected = true;
     console.log("Database connected");
   } catch (error) {

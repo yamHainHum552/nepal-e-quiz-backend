@@ -13,6 +13,30 @@ import {
   ReligionData,
   ScienceData,
   SportsData,
+  DeleteSports,
+  UpdateSports,
+  CreateSports,
+  DeleteGeography,
+  DeleteReligion,
+  DeleteHistory,
+  DeleteKatha,
+  DeleteScience,
+  DeletePolitics,
+  DeleteLiterature,
+  UpdateGeography,
+  UpdatePolitics,
+  UpdateKatha,
+  UpdateReligion,
+  UpdateScience,
+  UpdateLiterature,
+  UpdateHistory,
+  CreateGeography,
+  CreatePolitics,
+  CreateKatha,
+  CreateHistory,
+  CreateLiterature,
+  CreateScience,
+  CreateReligion,
 } from "./apis/index.js";
 import { getUpdate } from "./apis/updates/index.js";
 
@@ -41,65 +65,38 @@ app.get("/api/science/getData", ScienceData);
 app.get("/api/driving/getData", DrivingData);
 app.get("/api/update/getData", getUpdate);
 
-// app.listen(3000, () => {
-//   console.log("Server running on");
-// });
+// Delete
+app.delete("/api/delete/sports", DeleteSports);
+app.delete("/api/delete/literature", DeleteLiterature);
+app.delete("/api/delete/politics", DeletePolitics);
+app.delete("/api/delete/science", DeleteScience);
+app.delete("/api/delete/gaun", DeleteKatha);
+app.delete("/api/delete/history", DeleteHistory);
+app.delete("/api/delete/religion", DeleteReligion);
+app.delete("/api/delete/geography", DeleteGeography);
 
-//Create Data
-// app.post("/createData", async (req, res) => {
-//   try {
-//     const data = await req.body;
-//     console.log(data);
+// Update
+app.put("/api/update/sports", UpdateSports);
+app.put("/api/update/history", UpdateHistory);
+app.put("/api/update/literature", UpdateLiterature);
+app.put("/api/update/science", UpdateScience);
+app.put("/api/update/religion", UpdateReligion);
+app.put("/api/update/gaun", UpdateKatha);
+app.put("/api/update/politics", UpdatePolitics);
+app.put("/api/update/geography", UpdateGeography);
 
-//     const newQuestion = new Question({
-//       questionID: data.questionID,
-//       question: data.question,
-//       options: data.options,
-//       correctAnswer: data.correctAnswer,
-//     });
-//     const savedQuestion = await newQuestion.save();
-//     res.status(201).json(savedQuestion);
-//   } catch (error) {
-//     res.status(500).json({ message: "Error creating data", error });
-//   }
-// });
+// Create
+app.post("/api/create/sports", CreateSports);
+app.post("/api/create/geography", CreateGeography);
+app.post("/api/create/politics", CreatePolitics);
+app.post("/api/create/gaun", CreateKatha);
+app.post("/api/create/history", CreateHistory);
+app.post("/api/create/literature", CreateLiterature);
+app.post("/api/create/science", CreateScience);
+app.post("/api/create/religion", CreateReligion);
 
-// Update data
-// app.put("/updateData/:questionID", async (req, res) => {
-//   try {
-//     const updatedQuestion = await Question.findOneAndUpdate(
-//       { questionID: req.params.questionID },
-//       {
-//         question: req.body.question,
-//         options: req.body.options,
-//         correctAnswer: req.body.correctAnswer,
-//       },
-//       { new: true } // Return the updated document
-//     );
-//     if (!updatedQuestion) {
-//       return res.status(404).json({ message: "Question not found" });
-//     }
-//     res.status(200).json(updatedQuestion);
-//   } catch (error) {
-//     res.status(500).json({ message: "Error updating data", error });
-//   }
-// });
-
-// //Delete Data
-// app.delete("/deleteData/:questionID", async (req, res) => {
-//   try {
-//     const deletedQuestion = await Question.findOneAndDelete({
-//       questionID: req.params.questionID,
-//     });
-//     if (!deletedQuestion) {
-//       return res.status(404).json({ message: "Question not found" });
-//     }
-//     res
-//       .status(200)
-//       .json({ message: "Question deleted successfully", deletedQuestion });
-//   } catch (error) {
-//     res.status(500).json({ message: "Error deleting data", error });
-//   }
+// app.listen(5000, () => {
+//   console.log("Server running on 5000");
 // });
 
 export default app;
