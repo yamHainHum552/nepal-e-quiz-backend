@@ -45,15 +45,16 @@ export const DeleteGeography = async (req, res) => {
 
 export const UpdateGeography = async (req, res) => {
   try {
-    const { id, question, options, answer } = req.body;
+    const { id, question, options, answer } = await req.body;
 
     const existingQuestion = await GeographyQuestions.findOne({
       id: Number(id),
     });
+
     if (!existingQuestion) {
       return res.status(404).json({ message: "Questions doesn't exists" });
     }
-    const updatedQuestion = await HistoryQuestions.findOneAndUpdate(
+    const updatedQuestion = await GeographyQuestions.findOneAndUpdate(
       { id },
       { id, question, options, answer },
       { new: true }
