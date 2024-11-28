@@ -95,8 +95,8 @@ app.post("/api/create/literature", CreateLiterature);
 app.post("/api/create/science", CreateScience);
 app.post("/api/create/religion", CreateReligion);
 
-app.listen(5000, () => {
-  console.log("Server running on 5000");
-});
+// app.listen(5000, () => {
+//   console.log("Server running on 5000");
+// });
 
 export default app;
